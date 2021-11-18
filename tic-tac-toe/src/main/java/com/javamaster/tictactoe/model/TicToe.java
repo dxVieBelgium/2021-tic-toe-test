@@ -10,12 +10,4 @@ public enum TicToe {
 
     private Integer value;
 
-    private TicToe(Integer val) {
-        this.value = val;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
 }
