@@ -14,4 +14,8 @@ public enum TicToe {
         this.value = val;
     }
 
+    public Integer getValue() {
+        return value;
+    }
+
 }
