@@ -81,9 +81,15 @@ public class GameService {
         int [][] board = game.getBoard();
         board[gamePlay.getCoordinateX()][gamePlay.getCoordinateY()] = gamePlay.getType().getValue();
 
-        checkWinner(game.getBoard(), TicToe.X);
-        checkWinner(game.getBoard(), TicToe.O);
+        Boolean xIsWinner = checkWinner(game.getBoard(), TicToe.X);
+        Boolean oIsWinner = checkWinner(game.getBoard(), TicToe.O);
 
+        if(xIsWinner) {
+            game.setWinner(TicToe.X);
+        } else if (oIsWinner) {
+            game.setWinner(TicToe.O);
+        }
+        
         GameStorage.getInstance().setGame(game);
         return game;
     }
