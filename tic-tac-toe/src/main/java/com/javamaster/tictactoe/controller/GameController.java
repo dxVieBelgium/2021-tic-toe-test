@@ -27,21 +27,20 @@ import lombok.extern.slf4j.Slf4j;
 public class GameController {
     
 
-    private final GameService gameService = null;
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private final GameService gameService;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @PostMapping("/start")
     public ResponseEntity<Game> start(@RequestBody Player player) {
         
-        System.out.printf("start game request: {}", player);
-
+        log.info("Start game: ", player);
         return ResponseEntity.ok(gameService.createGame(player));
     }
 
     @PostMapping("/connect")
     public ResponseEntity<Game> connect(@RequestBody ConnectRequest request) throws InvalidParamException, InvalidGameException {
 
-        System.out.printf("connect request: {}", request);
+        log.info("Player connection: ", request);
 
         return ResponseEntity.ok(gameService.connectToGame(request.getPlayer(), request.getGameId()));
     }
@@ -49,7 +48,7 @@ public class GameController {
     @PostMapping("/connect/random")
     public ResponseEntity<Game> connectRandom(@RequestBody Player player) throws NotFoundException {
 
-        System.out.printf("connect random: {}", player);
+        log.info("connection to random game: ", player);
 
         return ResponseEntity.ok(gameService.connectToRandomGame(player));
     }
@@ -57,7 +56,7 @@ public class GameController {
     @PostMapping("/gameplay")
     public ResponseEntity<Game> gamePlay(@RequestBody GamePlay gamePlay) throws NotFoundException, InvalidGameException {
 
-        System.out.printf("gameplay: {}", gamePlay);
+        log.info("Update the game: ", gamePlay);
 
         Game game = gameService.gamePlay(gamePlay);
 
