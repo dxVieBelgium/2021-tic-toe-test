@@ -9,6 +9,7 @@ import com.javamaster.tictactoe.model.Player;
 import com.javamaster.tictactoe.model.request.ConnectRequest;
 import com.javamaster.tictactoe.service.GameService;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,14 @@ public class GameController {
 
         log.info("Player connection: ", request);
 
-        return ResponseEntity.ok(gameService.connectToGame(request.getPlayer(), request.getGameId()));
+        try {
+            
+            return ResponseEntity.ok(gameService.connectToGame(request.getPlayer(), request.getGameId()));
+        } catch (Exception e) {
+            //TODO: handle exception
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PostMapping("/connect/random")

@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javamaster.tictactoe.exception.InvalidParamException;
 import com.javamaster.tictactoe.model.Game;
 import com.javamaster.tictactoe.model.Player;
 import com.javamaster.tictactoe.model.request.ConnectRequest;
@@ -55,13 +56,15 @@ public class GameControllerTest {
     }
 
     @Test()
-    void should_not_connect_when_id_not_exist() throws Exception {
+    void should_throw_500() throws Exception {
 
         ConnectRequest connectRequest = new ConnectRequest();
         connectRequest.setPlayer(new Player("onimaru"));
         connectRequest.setGameId("5e16f5d4-1a38-4322-9744-d5bf9ff9a5c1");
 
-        when(gameService.connectToGame(connectRequest.getPlayer(), connectRequest.getGameId())).thenCallRealMethod().thenThrow();
+        when(gameService.connectToGame(connectRequest.getPlayer(), connectRequest.getGameId()))
+        .thenCallRealMethod()
+        .thenThrow(new InvalidParamException("Game with this id not exist"));
 
         mockMvc.perform(
             MockMvcRequestBuilders
