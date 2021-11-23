@@ -25,7 +25,7 @@ Create a new game:
 
 Once you finished you can launch the request by click on the right button with the label `send`
 
-Connect a second player to a Game: 
+Connect a second player to a Game: <br />
 The process is the same as the previous step, you have to create a new request with the endpoint `/game/connect`
 And provide a body which is the login of the second and the `gameId` of the game you want to join in.
 
