@@ -25,19 +25,19 @@ In order to test it with more ease, i recommend you to use postman, you can also
 
   Once you finished you can launch the request by click on the right button with the label `send`
 
-  Connect a second player to a Game: <br />
+  ### Connect a second player to a Game: <br />
   The process is the same as the previous step, you have to create a new request with the endpoint `/game/connect` <br />
   And provide a body which is the login of the second and the `gameId` of the game you want to join in.
 
   ![image](https://user-images.githubusercontent.com/94607643/143002038-e3c24c60-0c1d-43ee-a638-16f78a8ab30c.png)
 
-Made a move:
+  ### Made a move:
 
-Make a POST request with the endpoint `/game/gameplay` and provide a body with the data
-- `type` which player you are (player1: X, player2: O).
-- `coordinateX & coordinateY` position where you want to move.
-- `gameId` the game where you play.
+  Make a POST request with the endpoint `/game/gameplay` and provide a body with the data
+  - `type` which player you are (player1: X, player2: O).
+  - `coordinateX & coordinateY` position where you want to move.
+  - `gameId` the game where you play.
 
-![image](https://user-images.githubusercontent.com/94607643/143007809-e36cc998-fe59-4405-a5c5-3fab396f4233.png)
+  ![image](https://user-images.githubusercontent.com/94607643/143007809-e36cc998-fe59-4405-a5c5-3fab396f4233.png)
 
 
