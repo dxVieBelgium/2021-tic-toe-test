@@ -7,9 +7,9 @@ import com.javamaster.tictactoe.exception.InvalidParamException;
 import com.javamaster.tictactoe.exception.NotFoundException;
 import com.javamaster.tictactoe.model.Game;
 import com.javamaster.tictactoe.model.GamePlay;
-import com.javamaster.tictactoe.model.GameStatus;
 import com.javamaster.tictactoe.model.Player;
-import com.javamaster.tictactoe.model.TicToe;
+import com.javamaster.tictactoe.model.enums.GameStatus;
+import com.javamaster.tictactoe.model.enums.TicToe;
 import com.javamaster.tictactoe.storage.GameStorage;
 
 import org.springframework.stereotype.Service;

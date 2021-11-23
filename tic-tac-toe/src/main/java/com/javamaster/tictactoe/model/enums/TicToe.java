@@ -1,4 +1,4 @@
-package com.javamaster.tictactoe.model;
+package com.javamaster.tictactoe.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -2,6 +2,9 @@ package com.javamaster.tictactoe.model;
 
 import java.util.Objects;
 
+import com.javamaster.tictactoe.model.enums.GameStatus;
+import com.javamaster.tictactoe.model.enums.TicToe;
+
 import lombok.Data;
 
 @Data
