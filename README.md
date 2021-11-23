@@ -20,7 +20,7 @@ Create a new game:
 ![image](https://user-images.githubusercontent.com/94607643/142997951-5c4e6b13-a0ce-4fb1-a4f4-f1aa771a5e6f.png)
 
 1. The server run on port 8080 on your local machine and the endpoint is `/game/start`
-2. The http verb is POST
+2. The http verb is `POST`
 3. Put a body for this request which is a raw JSON with key `login` and the value is your name as a player
 
 Once you finished you can launch the request by click on the right button with the label `send`
@@ -30,4 +30,14 @@ The process is the same as the previous step, you have to create a new request w
 And provide a body which is the login of the second and the `gameId` of the game you want to join in.
 
 ![image](https://user-images.githubusercontent.com/94607643/143002038-e3c24c60-0c1d-43ee-a638-16f78a8ab30c.png)
+
+Made a move:
+
+Make a POST request with the endpoint `/game/gameplay` and provide a body with the data
+- `type` which player you are (player1: X, player2: O).
+- `coordinateX & coordinateY` position where you want to move.
+- `gameId` the game where you play.
+
+![image](https://user-images.githubusercontent.com/94607643/143007809-e36cc998-fe59-4405-a5c5-3fab396f4233.png)
+
 
