@@ -1,4 +1,4 @@
-package com.javamaster.tictactoe.controller.dto;
+package com.javamaster.tictactoe.model.request;
 
 import java.util.Objects;
 

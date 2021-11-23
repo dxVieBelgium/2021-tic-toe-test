@@ -5,9 +5,9 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.javamaster.tictactoe.controller.dto.ConnectRequest;
 import com.javamaster.tictactoe.model.Game;
 import com.javamaster.tictactoe.model.Player;
+import com.javamaster.tictactoe.model.request.ConnectRequest;
 import com.javamaster.tictactoe.service.GameService;
 
 import org.junit.jupiter.api.Test;
