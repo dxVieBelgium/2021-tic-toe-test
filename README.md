@@ -25,9 +25,39 @@ In order to test it with more ease, i recommend you to use postman, you can also
 
 Once you finished you can launch the request by click on the right button with the label `send`
 
+As you can see each response of the request is a json: <br />
+```json
+{
+    "gameId": "19eace5d-6089-4a15-9e8a-f0ff7fe47172",
+    "player1": {
+        "login": "storm"
+    },
+    "player2": null,
+    "status": "NEW",
+    "board": [
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ]
+    ],
+    "winner": null
+}
+```
+
 ### Connect a second player to a Game: <br />
 The process is the same as the previous step, you have to create a new request with the endpoint `/game/connect` <br />
-And provide a body which is the login of the second and the `gameId` of the game you want to join in.
+And provide a body which is the login of the second player and the `gameId` of the game you want to join in.
 
 ![image](https://user-images.githubusercontent.com/94607643/143002038-e3c24c60-0c1d-43ee-a638-16f78a8ab30c.png)
 
