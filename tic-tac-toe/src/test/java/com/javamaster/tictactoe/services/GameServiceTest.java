@@ -6,12 +6,15 @@ import static org.mockito.Mockito.when;
 import java.util.Optional;
 import java.util.Map.Entry;
 
+import com.javamaster.tictactoe.exception.InvalidParamException;
 import com.javamaster.tictactoe.model.Game;
 import com.javamaster.tictactoe.model.Player;
 import com.javamaster.tictactoe.service.GameService;
 import com.javamaster.tictactoe.storage.GameStorage;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
@@ -27,7 +30,7 @@ public class GameServiceTest {
     private GameService gameService;
 
     @Test
-    public void when_create_game_should_not_null() {
+    public void whenCreateGameShouldNotnull() {
         Player player = new Player("wutang");
 
         when(gameService.createGame(player)).thenCallRealMethod();
@@ -44,8 +47,25 @@ public class GameServiceTest {
         assertNotNull(createdGame);
     }
 
+    @Test
+    public void whenConnectWithNoGameIdShouldThrow() {
+        Player p2 = new Player();
+        Game game = new Game();
+
+        
+
+        assertThrowable(InvalidParamException.class, () -> {
+            when(gameService.connectToGame(p2, game.getGameId()))
+            .thenCallRealMethod()
+            .wait();
+        });
+    }
+
     GameStorage getGameStorage() {
         return GameStorage.getInstance();
     }
-        
+    
+    public static <T extends Throwable> T assertThrowable(Class<T> expectedType, Executable executable) {
+        return Assertions.assertThrows(expectedType, executable);
+    }
 }
